@@ -862,6 +862,176 @@ class Backups
      */
     private ?int $bonusTheory4 = null;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $equipment1Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $equipment2Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $equipment3Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $medicine1Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $medicine2Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $network1Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $network2Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $network3Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $network4Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $piloting1Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $piloting2Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $piloting3Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $piloting4Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $art1Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $art2Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $art3Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $art4Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $interest1Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $interest2Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $interest3Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $interest4Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $nativeLanguageText = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $language1Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $language2Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $language3Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $language4Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $profession1Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $profession2Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $profession3Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $profession4Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $theory1Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $theory2Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $theory3Text = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $theory4Text = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -2926,5 +3096,413 @@ class Backups
     {
         $som = $this->getBaseSom() + $this->getBonusSom();
         return round($som / 10, 0, PHP_ROUND_HALF_UP);
+    }
+
+    public function getEquipment1Text(): ?string
+    {
+        return $this->equipment1Text;
+    }
+
+    public function setEquipment1Text(?string $equipment1Text): self
+    {
+        $this->equipment1Text = $equipment1Text;
+
+        return $this;
+    }
+
+    public function getEquipment2Text(): ?string
+    {
+        return $this->equipment2Text;
+    }
+
+    public function setEquipment2Text(?string $equipment2Text): self
+    {
+        $this->equipment2Text = $equipment2Text;
+
+        return $this;
+    }
+
+    public function getEquipment3Text(): ?string
+    {
+        return $this->equipment3Text;
+    }
+
+    public function setEquipment3Text(?string $equipment3Text): self
+    {
+        $this->equipment3Text = $equipment3Text;
+
+        return $this;
+    }
+
+    public function getMedicine1Text(): ?string
+    {
+        return $this->medicine1Text;
+    }
+
+    public function setMedicine1Text(?string $medicine1Text): self
+    {
+        $this->medicine1Text = $medicine1Text;
+
+        return $this;
+    }
+
+    public function getMedicine2Text(): ?string
+    {
+        return $this->medicine2Text;
+    }
+
+    public function setMedicine2Text(?string $medicine2Text): self
+    {
+        $this->medicine2Text = $medicine2Text;
+
+        return $this;
+    }
+
+    public function getNetwork1Text(): ?string
+    {
+        return $this->network1Text;
+    }
+
+    public function setNetwork1Text(?string $network1Text): self
+    {
+        $this->network1Text = $network1Text;
+
+        return $this;
+    }
+
+    public function getNetwork2Text(): ?string
+    {
+        return $this->network2Text;
+    }
+
+    public function setNetwork2Text(?string $network2Text): self
+    {
+        $this->network2Text = $network2Text;
+
+        return $this;
+    }
+
+    public function getNetwork3Text(): ?string
+    {
+        return $this->network3Text;
+    }
+
+    public function setNetwork3Text(?string $network3Text): self
+    {
+        $this->network3Text = $network3Text;
+
+        return $this;
+    }
+
+    public function getNetwork4Text(): ?string
+    {
+        return $this->network4Text;
+    }
+
+    public function setNetwork4Text(?string $network4Text): self
+    {
+        $this->network4Text = $network4Text;
+
+        return $this;
+    }
+
+    public function getPiloting1Text(): ?string
+    {
+        return $this->piloting1Text;
+    }
+
+    public function setPiloting1Text(?string $piloting1Text): self
+    {
+        $this->piloting1Text = $piloting1Text;
+
+        return $this;
+    }
+
+    public function getPiloting2Text(): ?string
+    {
+        return $this->piloting2Text;
+    }
+
+    public function setPiloting2Text(?string $piloting2Text): self
+    {
+        $this->piloting2Text = $piloting2Text;
+
+        return $this;
+    }
+
+    public function getPiloting3Text(): ?string
+    {
+        return $this->piloting3Text;
+    }
+
+    public function setPiloting3Text(?string $piloting3Text): self
+    {
+        $this->piloting3Text = $piloting3Text;
+
+        return $this;
+    }
+
+    public function getPiloting4Text(): ?string
+    {
+        return $this->piloting4Text;
+    }
+
+    public function setPiloting4Text(?string $piloting4Text): self
+    {
+        $this->piloting4Text = $piloting4Text;
+
+        return $this;
+    }
+
+    public function getArt1Text(): ?string
+    {
+        return $this->art1Text;
+    }
+
+    public function setArt1Text(?string $art1Text): self
+    {
+        $this->art1Text = $art1Text;
+
+        return $this;
+    }
+
+    public function getArt2Text(): ?string
+    {
+        return $this->art2Text;
+    }
+
+    public function setArt2Text(?string $art2Text): self
+    {
+        $this->art2Text = $art2Text;
+
+        return $this;
+    }
+
+    public function getArt3Text(): ?string
+    {
+        return $this->art3Text;
+    }
+
+    public function setArt3Text(?string $art3Text): self
+    {
+        $this->art3Text = $art3Text;
+
+        return $this;
+    }
+
+    public function getArt4Text(): ?string
+    {
+        return $this->art4Text;
+    }
+
+    public function setArt4Text(string $art4Text): self
+    {
+        $this->art4Text = $art4Text;
+
+        return $this;
+    }
+
+    public function getInterest1Text(): ?string
+    {
+        return $this->interest1Text;
+    }
+
+    public function setInterest1Text(?string $interest1Text): self
+    {
+        $this->interest1Text = $interest1Text;
+
+        return $this;
+    }
+
+    public function getInterest2Text(): ?string
+    {
+        return $this->interest2Text;
+    }
+
+    public function setInterest2Text(?string $interest2Text): self
+    {
+        $this->interest2Text = $interest2Text;
+
+        return $this;
+    }
+
+    public function getInterest3Text(): ?string
+    {
+        return $this->interest3Text;
+    }
+
+    public function setInterest3Text(?string $interest3Text): self
+    {
+        $this->interest3Text = $interest3Text;
+
+        return $this;
+    }
+
+    public function getInterest4Text(): ?string
+    {
+        return $this->interest4Text;
+    }
+
+    public function setInterest4Text(?string $interest4Text): self
+    {
+        $this->interest4Text = $interest4Text;
+
+        return $this;
+    }
+
+    public function getNativeLanguageText(): ?string
+    {
+        return $this->nativeLanguageText;
+    }
+
+    public function setNativeLanguageText(?string $nativeLanguageText): self
+    {
+        $this->nativeLanguageText = $nativeLanguageText;
+
+        return $this;
+    }
+
+    public function getLanguage1Text(): ?string
+    {
+        return $this->language1Text;
+    }
+
+    public function setLanguage1Text(?string $language1Text): self
+    {
+        $this->language1Text = $language1Text;
+
+        return $this;
+    }
+
+    public function getLanguage2Text(): ?string
+    {
+        return $this->language2Text;
+    }
+
+    public function setLanguage2Text(?string $language2Text): self
+    {
+        $this->language2Text = $language2Text;
+
+        return $this;
+    }
+
+    public function getLanguage3Text(): ?string
+    {
+        return $this->language3Text;
+    }
+
+    public function setLanguage3Text(?string $language3Text): self
+    {
+        $this->language3Text = $language3Text;
+
+        return $this;
+    }
+
+    public function getLanguage4Text(): ?string
+    {
+        return $this->language4Text;
+    }
+
+    public function setLanguage4Text(?string $language4Text): self
+    {
+        $this->language4Text = $language4Text;
+
+        return $this;
+    }
+
+    public function getProfession1Text(): ?string
+    {
+        return $this->profession1Text;
+    }
+
+    public function setProfession1Text(?string $profession1Text): self
+    {
+        $this->profession1Text = $profession1Text;
+
+        return $this;
+    }
+
+    public function getProfession2Text(): ?string
+    {
+        return $this->profession2Text;
+    }
+
+    public function setProfession2Text(?string $profession2Text): self
+    {
+        $this->profession2Text = $profession2Text;
+
+        return $this;
+    }
+
+    public function getProfession3Text(): ?string
+    {
+        return $this->profession3Text;
+    }
+
+    public function setProfession3Text(?string $profession3Text): self
+    {
+        $this->profession3Text = $profession3Text;
+
+        return $this;
+    }
+
+    public function getProfession4Text(): ?string
+    {
+        return $this->profession4Text;
+    }
+
+    public function setProfession4Text(?string $profession4Text): self
+    {
+        $this->profession4Text = $profession4Text;
+
+        return $this;
+    }
+
+    public function getTheory1Text(): ?string
+    {
+        return $this->theory1Text;
+    }
+
+    public function setTheory1Text(?string $theory1Text): self
+    {
+        $this->theory1Text = $theory1Text;
+
+        return $this;
+    }
+
+    public function getTheory2Text(): ?string
+    {
+        return $this->theory2Text;
+    }
+
+    public function setTheory2Text(?string $theory2Text): self
+    {
+        $this->theory2Text = $theory2Text;
+
+        return $this;
+    }
+
+    public function getTheory3Text(): ?string
+    {
+        return $this->theory3Text;
+    }
+
+    public function setTheory3Text(?string $theory3Text): self
+    {
+        $this->theory3Text = $theory3Text;
+
+        return $this;
+    }
+
+    public function getTheory4Text(): ?string
+    {
+        return $this->theory4Text;
+    }
+
+    public function setTheory4Text(?string $theory4Text): self
+    {
+        $this->theory4Text = $theory4Text;
+
+        return $this;
     }
 }

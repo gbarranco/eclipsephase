@@ -98,3 +98,9 @@ caption {
 .table .thead-dark th {
     background-color: #800000;
 }
+
+.specialization {
+    width: 200px;
+    display: inline;
+    margin: 0 6px;
+}
