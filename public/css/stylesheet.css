@@ -1,0 +1,100 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.container .logo {
+    margin: auto;
+    width: 600px;
+}
+
+a i.far {
+    color: #800000;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+div.back {
+    margin-top: 20px;
+}
+
+div.back a {
+    color: #800000;
+}
+
+div.back a i:before {
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: #c20000;
+    border-color: #c20000;
+}
+
+.btn-primary:hover {
+    background-color: #b00000;
+    border-color: #800000;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    background-color: #b00000;
+    border-color: #800000;
+    box-shadow: 0 0 0 .2rem rgba(255,36,36,.5)
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+    background-color: #800000;
+    border-color: #600000;
+}
+
+.card {
+    float: left;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+.card a {
+    background-color: #f9ede6;
+    color: #800000;
+}
+
+.card-title {
+    margin-bottom: 0;
+}
+
+caption {
+    caption-side: top;
+    font-size: 16pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #e6d3ca;
+}
+
+.table,
+.table > th,
+.table > td {
+    background-color: #f3dfd6;
+    color: #800000;
+}
+
+.table-light tbody + tbody, .table-light td, .table-light th, .table-light thead th {
+    border-color: #f3dfd6;
+}
+
+.table .thead-dark th {
+    background-color: #800000;
+}

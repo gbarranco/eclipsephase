@@ -1,0 +1,584 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Backups{% endtrans %} : {{ backup.playableCharacter }} le {{ backup.backupDate }}{% endblock %}
+
+{% block body %}
+    <h1>{% trans %}Backups{% endtrans %} : {{ backup.playableCharacter }} le {{ backup.backupDate }}</h1>
+
+    <table class="table table-hover table-striped table-light">
+        <caption>Aptitudes</caption>
+        <thead class="thead-dark">
+        <tr>
+            <th>&nbsp;</th>
+            <th scope="col">COG</th>
+            <th scope="col">COO</th>
+            <th scope="col">INT</th>
+            <th scope="col">RÉF</th>
+            <th scope="col">AST</th>
+            <th scope="col">SOM</th>
+            <th scope="col">VOL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Base</th>
+            <td>{{ backup.baseCog }}</td>
+            <td>{{ backup.baseCoo }}</td>
+            <td>{{ backup.baseInt }}</td>
+            <td>{{ backup.baseRef }}</td>
+            <td>{{ backup.baseAst }}</td>
+            <td>{{ backup.baseSom }}</td>
+            <td>{{ backup.baseVol }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Bonus divers</th>
+            <td>{{ backup.bonusCog }}</td>
+            <td>{{ backup.bonusCoo }}</td>
+            <td>{{ backup.bonusInt }}</td>
+            <td>{{ backup.bonusRef }}</td>
+            <td>{{ backup.bonusAst }}</td>
+            <td>{{ backup.bonusSom }}</td>
+            <td>{{ backup.bonusVol }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Total</th>
+            <td>{{ backup.baseCog + backup.BonusCog }}</td>
+            <td>{{ backup.baseCoo + backup.BonusCoo }}</td>
+            <td>{{ backup.baseInt + backup.BonusInt }}</td>
+            <td>{{ backup.baseRef + backup.BonusRef }}</td>
+            <td>{{ backup.baseAst + backup.BonusAst }}</td>
+            <td>{{ backup.baseSom + backup.BonusSom }}</td>
+            <td>{{ backup.baseVol + backup.BonusVol }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-hover table-striped table-light">
+        <caption>Caractéristiques</caption>
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">AUD</th>
+            <th scope="col">ST</th>
+            <th scope="col">LUC</th>
+            <th scope="col">SA</th>
+            <th scope="col">SB</th>
+            <th scope="col">END</th>
+            <th scope="col">SM</th>
+            <th scope="col">INIT</th>
+            <th scope="col">RAP</th>
+            <th scope="col">BD</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ backup.audacity }}</td>
+            <td>{{ backup.st }}</td>
+            <td>{{ backup.luc }}</td>
+            <td>{{ backup.sa }}</td>
+            <td colspan="3" class="text-center">Selon le morphe</td>
+            <td>{{ backup.init }}</td>
+            <td>{{ backup.speed }}</td>
+            <td>{{ backup.bd }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-hover table-striped table-light">
+        <caption>Stress & traumas</caption>
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Stress</th>
+            <th scope="col">Trauma</th>
+            <th scope="col">Traumas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ backup.stress }}</td>
+            <td>{{ backup.trauma }}</td>
+            <td>{{ backup.traumaText }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-hover table-striped table-light">
+        <caption>Compétences actives</caption>
+        <thead class="thead-dark">
+        <tr>
+            <th>&nbsp;</th>
+            <th scope="col">Base</th>
+            <th scope="col">Bonus</th>
+            <th scope="col">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">{% trans %}Dispersal weapons{% endtrans %}</th>
+            <td>{{ backup.baseDispersalWeapons }}</td>
+            <td>{{ backup.bonusDispersalWeapons }}</td>
+            <td>{{ backup.baseDispersalWeapons + backup.bonusDispersalWeapons }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Exotic rifles{% endtrans %}</th>
+            <td>{{ backup.baseExoticRifles }}</td>
+            <td>{{ backup.bonusExoticRifles }}</td>
+            <td>{{ backup.baseExoticRifles + backup.bonusExoticRifles }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Guided weapons{% endtrans %}</th>
+            <td>{{ backup.baseGuidedWeapons }}</td>
+            <td>{{ backup.bonusGuidedWeapons }}</td>
+            <td>{{ backup.baseGuidedWeapons + backup.bonusGuidedWeapons }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Ray weapons{% endtrans %}</th>
+            <td>{{ backup.baseRayWeapons }}</td>
+            <td>{{ backup.bonusRayWeapons }}</td>
+            <td>{{ backup.baseRayWeapons + backup.bonusRayWeapons }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Kinetic weapons{% endtrans %}</th>
+            <td>{{ backup.baseKineticWeapons }}</td>
+            <td>{{ backup.bonusKineticWeapons }}</td>
+            <td>{{ backup.baseKineticWeapons + backup.bonusKineticWeapons }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Jet weapons{% endtrans %}</th>
+            <td>{{ backup.baseJetWeapons }}</td>
+            <td>{{ backup.bonusJetWeapons }}</td>
+            <td>{{ backup.baseJetWeapons + backup.bonusJetWeapons }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Blunt weapons{% endtrans %}</th>
+            <td>{{ backup.baseBluntWeapons }}</td>
+            <td>{{ backup.bonusBluntWeapons }}</td>
+            <td>{{ backup.baseBluntWeapons + backup.bonusBluntWeapons }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Melee weapons{% endtrans %}</th>
+            <td>{{ backup.baseMeleeWeapons }}</td>
+            <td>{{ backup.bonusMeleeWeapons }}</td>
+            <td>{{ backup.baseMeleeWeapons + backup.bonusMeleeWeapons }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Edged weapons{% endtrans %}</th>
+            <td>{{ backup.baseEdgedWeapons }}</td>
+            <td>{{ backup.bonusEdgedWeapons }}</td>
+            <td>{{ backup.baseEdgedWeapons + backup.bonusEdgedWeapons }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Non armed fight{% endtrans %}</th>
+            <td>{{ backup.baseNonArmedFight }}</td>
+            <td>{{ backup.bonusNonArmedFight }}</td>
+            <td>{{ backup.baseNonArmedFight + backup.bonusNonArmedFight }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Mounted weapons{% endtrans %}</th>
+            <td>{{ backup.baseMountedWeapons }}</td>
+            <td>{{ backup.bonusMountedWeapons }}</td>
+            <td>{{ backup.baseMountedWeapons + backup.bonusMountedWeapons }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Evasion{% endtrans %}</th>
+            <td>{{ backup.baseEvasion }}</td>
+            <td>{{ backup.bonusEvasion }}</td>
+            <td>{{ backup.baseEvasion + backup.bonusEvasion }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Free fall{% endtrans %}</th>
+            <td>{{ backup.baseFreeFall }}</td>
+            <td>{{ backup.bonusFreeFall }}</td>
+            <td>{{ backup.baseFreeFall + backup.bonusFreeFall }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Disguise{% endtrans %}</th>
+            <td>{{ backup.baseDisguise }}</td>
+            <td>{{ backup.bonusDisguise }}</td>
+            <td>{{ backup.baseDisguise + backup.bonusDisguise }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Robbery{% endtrans %}</th>
+            <td>{{ backup.baseRobbery }}</td>
+            <td>{{ backup.bonusRobbery }}</td>
+            <td>{{ backup.baseRobbery + backup.bonusRobbery }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Infiltration{% endtrans %}</th>
+            <td>{{ backup.baseInfiltration }}</td>
+            <td>{{ backup.bonusInfiltration }}</td>
+            <td>{{ backup.baseInfiltration + backup.bonusInfiltration }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Climbing{% endtrans %}</th>
+            <td>{{ backup.baseClimbing }}</td>
+            <td>{{ backup.bonusClimbing }}</td>
+            <td>{{ backup.baseClimbing + backup.bonusClimbing }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Swimming{% endtrans %}</th>
+            <td>{{ backup.baseSwimming }}</td>
+            <td>{{ backup.bonusSwimming }}</td>
+            <td>{{ backup.baseSwimming + backup.bonusSwimming }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Parkour{% endtrans %}</th>
+            <td>{{ backup.baseParkour }}</td>
+            <td>{{ backup.bonusParkour }}</td>
+            <td>{{ backup.baseParkour + backup.bonusParkour }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Flight{% endtrans %}</th>
+            <td>{{ backup.baseFlight }}</td>
+            <td>{{ backup.bonusFlight }}</td>
+            <td>{{ backup.baseFlight + backup.bonusFlight }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Demolition{% endtrans %}</th>
+            <td>{{ backup.baseDemolition }}</td>
+            <td>{{ backup.bonusDemolition }}</td>
+            <td>{{ backup.baseDemolition + backup.bonusDemolition }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Infosec{% endtrans %}</th>
+            <td>{{ backup.baseInfosec }}</td>
+            <td>{{ backup.bonusInfosec }}</td>
+            <td>{{ backup.baseInfosec + backup.bonusInfosec }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Interface{% endtrans %}</th>
+            <td>{{ backup.baseInterface }}</td>
+            <td>{{ backup.bonusInterface }}</td>
+            <td>{{ backup.baseInterface + backup.bonusInterface }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Equipment 1{% endtrans %}</th>
+            <td>{{ backup.baseEquipment1 }}</td>
+            <td>{{ backup.bonusEquipment1 }}</td>
+            <td>{{ backup.baseEquipment1 + backup.bonusEquipment1 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Equipment 2{% endtrans %}</th>
+            <td>{{ backup.baseEquipment2 }}</td>
+            <td>{{ backup.bonusEquipment2 }}</td>
+            <td>{{ backup.baseEquipment2 + backup.bonusEquipment2 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Equipment 3{% endtrans %}</th>
+            <td>{{ backup.baseEquipment3 }}</td>
+            <td>{{ backup.bonusEquipment3 }}</td>
+            <td>{{ backup.baseEquipment3 + backup.bonusEquipment3 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Medicine 1{% endtrans %}</th>
+            <td>{{ backup.baseMedicine1 }}</td>
+            <td>{{ backup.bonusMedicine1 }}</td>
+            <td>{{ backup.baseMedicine1 + backup.bonusMedicine1 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Medicine 2{% endtrans %}</th>
+            <td>{{ backup.baseMedicine2 }}</td>
+            <td>{{ backup.bonusMedicine2 }}</td>
+            <td>{{ backup.baseMedicine2 + backup.bonusMedicine2 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Programming{% endtrans %}</th>
+            <td>{{ backup.baseProgramming }}</td>
+            <td>{{ backup.bonusProgramming }}</td>
+            <td>{{ backup.baseProgramming + backup.bonusProgramming }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Search{% endtrans %}</th>
+            <td>{{ backup.baseSearch }}</td>
+            <td>{{ backup.bonusSearch }}</td>
+            <td>{{ backup.baseSearch + backup.bonusSearch }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Psychosurgery{% endtrans %}</th>
+            <td>{{ backup.basePsychoSurgery }}</td>
+            <td>{{ backup.bonusPsychoSurgery }}</td>
+            <td>{{ backup.basePsychoSurgery + backup.bonusPsychoSurgery }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Excavation{% endtrans %}</th>
+            <td>{{ backup.baseExcavation }}</td>
+            <td>{{ backup.bonusExcavation }}</td>
+            <td>{{ backup.baseExcavation + backup.bonusExcavation }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Investigation{% endtrans %}</th>
+            <td>{{ backup.baseInvestigation }}</td>
+            <td>{{ backup.bonusInvestigation }}</td>
+            <td>{{ backup.baseInvestigation + backup.bonusInvestigation }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Navigation{% endtrans %}</th>
+            <td>{{ backup.baseNavigation }}</td>
+            <td>{{ backup.bonusNavigation }}</td>
+            <td>{{ backup.baseNavigation + backup.bonusNavigation }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Perception{% endtrans %}</th>
+            <td>{{ backup.basePerception }}</td>
+            <td>{{ backup.bonusPerception }}</td>
+            <td>{{ backup.basePerception + backup.bonusPerception }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Psi assault{% endtrans %}</th>
+            <td>{{ backup.basePsiAssault }}</td>
+            <td>{{ backup.bonusPsiAssault }}</td>
+            <td>{{ backup.basePsiAssault + backup.bonusPsiAssault }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Control{% endtrans %}</th>
+            <td>{{ backup.baseControl }}</td>
+            <td>{{ backup.bonusControl }}</td>
+            <td>{{ backup.baseControl + backup.bonusControl }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Sensation{% endtrans %}</th>
+            <td>{{ backup.baseSensation }}</td>
+            <td>{{ backup.bonusSensation }}</td>
+            <td>{{ backup.baseSensation + backup.bonusSensation }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Animal control{% endtrans %}</th>
+            <td>{{ backup.baseAnimalControl }}</td>
+            <td>{{ backup.bonusAnimalControl }}</td>
+            <td>{{ backup.baseAnimalControl + backup.bonusAnimalControl }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Imposture{% endtrans %}</th>
+            <td>{{ backup.baseImposture }}</td>
+            <td>{{ backup.bonusImposture }}</td>
+            <td>{{ backup.baseImposture + backup.bonusImposture }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Intimidation{% endtrans %}</th>
+            <td>{{ backup.baseIntimidation }}</td>
+            <td>{{ backup.bonusIntimidation }}</td>
+            <td>{{ backup.baseIntimidation + backup.bonusIntimidation }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Kinesics{% endtrans %}</th>
+            <td>{{ backup.baseKinesics }}</td>
+            <td>{{ backup.bonusKinesics }}</td>
+            <td>{{ backup.baseKinesics + backup.bonusKinesics }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Persuasion{% endtrans %}</th>
+            <td>{{ backup.basePersuasion }}</td>
+            <td>{{ backup.bonusPersuasion }}</td>
+            <td>{{ backup.basePersuasion + backup.bonusPersuasion }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Protocol{% endtrans %}</th>
+            <td>{{ backup.baseProtocol }}</td>
+            <td>{{ backup.bonusProtocol }}</td>
+            <td>{{ backup.baseProtocol + backup.bonusProtocol }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Network {% endtrans %}</th>
+            <td>{{ backup.baseNetwork1 }}</td>
+            <td>{{ backup.bonusNetwork1 }}</td>
+            <td>{{ backup.baseNetwork1 + backup.bonusNetwork1 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Network 2{% endtrans %}</th>
+            <td>{{ backup.baseNetwork2 }}</td>
+            <td>{{ backup.bonusNetwork2 }}</td>
+            <td>{{ backup.baseNetwork2 + backup.bonusNetwork2 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Network 3{% endtrans %}</th>
+            <td>{{ backup.baseNetwork3 }}</td>
+            <td>{{ backup.bonusNetwork3 }}</td>
+            <td>{{ backup.baseNetwork3 + backup.bonusNetwork3 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Network 4{% endtrans %}</th>
+            <td>{{ backup.baseNetwork4 }}</td>
+            <td>{{ backup.bonusNetwork4 }}</td>
+            <td>{{ backup.baseNetwork4 + backup.bonusNetwork4 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Subterfuge{% endtrans %}</th>
+            <td>{{ backup.baseSubterfuge }}</td>
+            <td>{{ backup.bonusSubterfuge }}</td>
+            <td>{{ backup.baseSubterfuge + backup.bonusSubterfuge }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Piloting 1{% endtrans %}</th>
+            <td>{{ backup.basePiloting1 }}</td>
+            <td>{{ backup.bonusPiloting1 }}</td>
+            <td>{{ backup.basePiloting1 + backup.bonusPiloting1 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Piloting 2{% endtrans %}</th>
+            <td>{{ backup.basePiloting2 }}</td>
+            <td>{{ backup.bonusPiloting2 }}</td>
+            <td>{{ backup.basePiloting2 + backup.bonusPiloting2 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Piloting 3{% endtrans %}</th>
+            <td>{{ backup.basePiloting3 }}</td>
+            <td>{{ backup.bonusPiloting3 }}</td>
+            <td>{{ backup.basePiloting3 + backup.bonusPiloting3 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Piloting 4{% endtrans %}</th>
+            <td>{{ backup.basePiloting4 }}</td>
+            <td>{{ backup.bonusPiloting4 }}</td>
+            <td>{{ backup.basePiloting4 + backup.bonusPiloting4 }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover table-striped table-light">
+        <caption>Compétences de connaissance</caption>
+        <thead class="thead-dark">
+        <tr>
+            <th>&nbsp;</th>
+            <th scope="col">Base</th>
+            <th scope="col">Bonus</th>
+            <th scope="col">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">{% trans %}Art 1{% endtrans %}</th>
+            <td>{{ backup.baseArt1 }}</td>
+            <td>{{ backup.bonusArt1 }}</td>
+            <td>{{ backup.baseArt1 + backup.bonusArt1 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Art 2{% endtrans %}</th>
+            <td>{{ backup.baseArt2 }}</td>
+            <td>{{ backup.bonusArt2 }}</td>
+            <td>{{ backup.baseArt2 + backup.bonusArt2 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Art 3{% endtrans %}</th>
+            <td>{{ backup.baseArt3 }}</td>
+            <td>{{ backup.bonusArt3 }}</td>
+            <td>{{ backup.baseArt3 + backup.bonusArt3 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Art 4{% endtrans %}</th>
+            <td>{{ backup.baseArt4 }}</td>
+            <td>{{ backup.bonusArt4 }}</td>
+            <td>{{ backup.baseArt4 + backup.bonusArt4 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Interest 1{% endtrans %}</th>
+            <td>{{ backup.baseInterest1 }}</td>
+            <td>{{ backup.bonusInterest1 }}</td>
+            <td>{{ backup.baseInterest1 + backup.bonusInterest1 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Interest 2{% endtrans %}</th>
+            <td>{{ backup.baseInterest2 }}</td>
+            <td>{{ backup.bonusInterest2 }}</td>
+            <td>{{ backup.baseInterest2 + backup.bonusInterest2 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Interest 3{% endtrans %}</th>
+            <td>{{ backup.baseInterest3 }}</td>
+            <td>{{ backup.bonusInterest3 }}</td>
+            <td>{{ backup.baseInterest3 + backup.bonusInterest3 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Interest 4{% endtrans %}</th>
+            <td>{{ backup.baseInterest4 }}</td>
+            <td>{{ backup.bonusInterest4 }}</td>
+            <td>{{ backup.baseInterest4 + backup.bonusInterest4 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Native language{% endtrans %}</th>
+            <td>{{ backup.baseNativeLanguage }}</td>
+            <td>{{ backup.bonusNativeLanguage }}</td>
+            <td>{{ backup.baseNativeLanguage + backup.bonusNativeLanguage }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Language 1{% endtrans %}</th>
+            <td>{{ backup.baseLanguage1 }}</td>
+            <td>{{ backup.bonusLanguage1 }}</td>
+            <td>{{ backup.baseLanguage1 + backup.bonusLanguage1 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Language 2{% endtrans %}</th>
+            <td>{{ backup.baseLanguage2 }}</td>
+            <td>{{ backup.bonusLanguage2 }}</td>
+            <td>{{ backup.baseLanguage2 + backup.bonusLanguage2 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Language 3{% endtrans %}</th>
+            <td>{{ backup.baseLanguage3 }}</td>
+            <td>{{ backup.bonusLanguage3 }}</td>
+            <td>{{ backup.baseLanguage3 + backup.bonusLanguage3 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Language 4{% endtrans %}</th>
+            <td>{{ backup.baseLanguage4 }}</td>
+            <td>{{ backup.bonusLanguage4 }}</td>
+            <td>{{ backup.baseLanguage4 + backup.bonusLanguage4 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Profession 1{% endtrans %}</th>
+            <td>{{ backup.baseProfession1 }}</td>
+            <td>{{ backup.bonusProfession1 }}</td>
+            <td>{{ backup.baseProfession1 + backup.bonusProfession1 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Profession 2{% endtrans %}</th>
+            <td>{{ backup.baseProfession2 }}</td>
+            <td>{{ backup.bonusProfession2 }}</td>
+            <td>{{ backup.baseProfession2 + backup.bonusProfession2 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Profession 3{% endtrans %}</th>
+            <td>{{ backup.baseProfession3 }}</td>
+            <td>{{ backup.bonusProfession3 }}</td>
+            <td>{{ backup.baseProfession3 + backup.bonusProfession3 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Profession 4{% endtrans %}</th>
+            <td>{{ backup.baseProfession4 }}</td>
+            <td>{{ backup.bonusProfession4 }}</td>
+            <td>{{ backup.baseProfession4 + backup.bonusProfession4 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Theory 1{% endtrans %}</th>
+            <td>{{ backup.baseTheory1 }}</td>
+            <td>{{ backup.bonusTheory1 }}</td>
+            <td>{{ backup.baseTheory1 + backup.bonusTheory1 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Theory 2{% endtrans %}</th>
+            <td>{{ backup.baseTheory2 }}</td>
+            <td>{{ backup.bonusTheory2 }}</td>
+            <td>{{ backup.baseTheory2 + backup.bonusTheory2 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Theory 3{% endtrans %}</th>
+            <td>{{ backup.baseTheory3 }}</td>
+            <td>{{ backup.bonusTheory3 }}</td>
+            <td>{{ backup.baseTheory3 + backup.bonusTheory3 }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% trans %}Theory 4{% endtrans %}</th>
+            <td>{{ backup.baseTheory4 }}</td>
+            <td>{{ backup.bonusTheory4 }}</td>
+            <td>{{ backup.baseTheory4 + backup.bonusTheory4 }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="back">
+        <a href="{{ path('backups_index') }}">
+            <i class="fas fa-angle-double-left">
+                {% trans %}back to list{% endtrans %}
+            </i>
+        </a>
+    </div>
+
+    {{ include('backups/_delete_form.html.twig') }}
+{% endblock %}

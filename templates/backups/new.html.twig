@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Create new backup{% endtrans %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans %}Create new backup{% endtrans %}</h1>
+
+    {{ include('backups/_form.html.twig') }}
+
+    <div class="back">
+        <a href="{{ path('backups_index') }}">
+            <i class="fas fa-angle-double-left">
+                {% trans %}back to list{% endtrans %}
+            </i>
+        </a>
+    </div>
+{% endblock %}

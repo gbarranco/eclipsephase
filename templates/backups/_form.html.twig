@@ -1,0 +1,614 @@
+{{ form_start(form) }}
+    {{form_row(form.backupDate) }}
+    {{form_row(form.playableCharacter) }}
+    <table class="table table-hover table-striped table-light">
+        <caption>Aptitudes</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th>&nbsp;</th>
+                <th scope="col">COG</th>
+                <th scope="col">COO</th>
+                <th scope="col">INT</th>
+                <th scope="col">RÉF</th>
+                <th scope="col">AST</th>
+                <th scope="col">SOM</th>
+                <th scope="col">VOL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Base</th>
+                <td>{{ form_widget(form.baseCog) }}</td>
+                <td>{{ form_widget(form.baseCoo) }}</td>
+                <td>{{ form_widget(form.baseInt) }}</td>
+                <td>{{ form_widget(form.baseRef) }}</td>
+                <td>{{ form_widget(form.baseAst) }}</td>
+                <td>{{ form_widget(form.baseSom) }}</td>
+                <td>{{ form_widget(form.baseVol) }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Bonus divers</th>
+                <td>{{ form_widget(form.bonusCog) }}</td>
+                <td>{{ form_widget(form.bonusCoo) }}</td>
+                <td>{{ form_widget(form.bonusInt) }}</td>
+                <td>{{ form_widget(form.bonusRef) }}</td>
+                <td>{{ form_widget(form.bonusAst) }}</td>
+                <td>{{ form_widget(form.bonusSom) }}</td>
+                <td>{{ form_widget(form.bonusVol) }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Total</th>
+                <td id="totalCog"></td>
+                <td id="totalCoo"></td>
+                <td id="totalInt"></td>
+                <td id="totalRef"></td>
+                <td id="totalAst"></td>
+                <td id="totalSom"></td>
+                <td id="totalVol"></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover table-striped table-light">
+        <caption>Caractéristiques</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">AUD</th>
+                <th scope="col">ST</th>
+                <th scope="col">LUC</th>
+                <th scope="col">SA</th>
+                <th scope="col">SB</th>
+                <th scope="col">END</th>
+                <th scope="col">SM</th>
+                <th scope="col">INIT</th>
+                <th scope="col">RAP</th>
+                <th scope="col">BD</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ form_widget(form.audacity) }}</td>
+                <td id="st"></td>
+                <td id="luc"></td>
+                <td id="sa"></td>
+                <td colspan="3" class="text-center">Selon le morphe</td>
+                <td id="init"></td>
+                <td>{{ form_widget(form.speed) }}</td>
+                <td id="bd"></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover table-striped table-light">
+        <caption>Stress & traumas</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Stress</th>
+                <th scope="col">Trauma</th>
+                <th scope="col">Traumas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ form_widget(form.stress) }}</td>
+                <td>{{ form_widget(form.trauma) }}</td>
+                <td>{{ form_widget(form.traumaText) }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover table-striped table-light">
+        <caption>Compétences actives</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th>&nbsp;</th>
+                <th scope="col">Base</th>
+                <th scope="col">Bonus</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{% trans %}Dispersal weapons{% endtrans %}</th>
+                <td>{{ form_widget(form.baseDispersalWeapons) }}</td>
+                <td>{{ form_widget(form.bonusDispersalWeapons) }}</td>
+                <td id="totalDispersalWeapons"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Exotic rifles{% endtrans %}</th>
+                <td>{{ form_widget(form.baseExoticRifles) }}</td>
+                <td>{{ form_widget(form.bonusExoticRifles) }}</td>
+                <td id="totalExoticRifles"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Guided weapons{% endtrans %}</th>
+                <td>{{ form_widget(form.baseGuidedWeapons) }}</td>
+                <td>{{ form_widget(form.bonusGuidedWeapons) }}</td>
+                <td id="totalGuidedWeapons"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Ray weapons{% endtrans %}</th>
+                <td>{{ form_widget(form.baseRayWeapons) }}</td>
+                <td>{{ form_widget(form.bonusRayWeapons) }}</td>
+                <td id="totalRayWeapons"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Kinetic weapons{% endtrans %}</th>
+                <td>{{ form_widget(form.baseKineticWeapons) }}</td>
+                <td>{{ form_widget(form.bonusKineticWeapons) }}</td>
+                <td id="totalKineticWeapons"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Jet weapons{% endtrans %}</th>
+                <td>{{ form_widget(form.baseJetWeapons) }}</td>
+                <td>{{ form_widget(form.bonusJetWeapons) }}</td>
+                <td id="totalJetWeapons"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Blunt weapons{% endtrans %}</th>
+                <td>{{ form_widget(form.baseBluntWeapons) }}</td>
+                <td>{{ form_widget(form.bonusBluntWeapons) }}</td>
+                <td id="totalBluntWeapons"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Melee weapons{% endtrans %}</th>
+                <td>{{ form_widget(form.baseMeleeWeapons) }}</td>
+                <td>{{ form_widget(form.bonusMeleeWeapons) }}</td>
+                <td id="totalMeleeWeapons"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Edged weapons{% endtrans %}</th>
+                <td>{{ form_widget(form.baseEdgedWeapons) }}</td>
+                <td>{{ form_widget(form.bonusEdgedWeapons) }}</td>
+                <td id="totalEdgedWeapons"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Non armed fight{% endtrans %}</th>
+                <td>{{ form_widget(form.baseNonArmedFight) }}</td>
+                <td>{{ form_widget(form.bonusNonArmedFight) }}</td>
+                <td id="totalNonArmedFight"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Mounted weapons{% endtrans %}</th>
+                <td>{{ form_widget(form.baseMountedWeapons) }}</td>
+                <td>{{ form_widget(form.bonusMountedWeapons) }}</td>
+                <td id="totalMountedWeapons"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Evasion{% endtrans %}</th>
+                <td>{{ form_widget(form.baseEvasion) }}</td>
+                <td>{{ form_widget(form.bonusEvasion) }}</td>
+                <td id="totalEvasion"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Free fall{% endtrans %}</th>
+                <td>{{ form_widget(form.baseFreeFall) }}</td>
+                <td>{{ form_widget(form.bonusFreeFall) }}</td>
+                <td id="totalFreeFall"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Disguise{% endtrans %}</th>
+                <td>{{ form_widget(form.baseDisguise) }}</td>
+                <td>{{ form_widget(form.bonusDisguise) }}</td>
+                <td id="totalDisguise"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Robbery{% endtrans %}</th>
+                <td>{{ form_widget(form.baseRobbery) }}</td>
+                <td>{{ form_widget(form.bonusRobbery) }}</td>
+                <td id="totalRobbery"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Infiltration{% endtrans %}</th>
+                <td>{{ form_widget(form.baseInfiltration) }}</td>
+                <td>{{ form_widget(form.bonusInfiltration) }}</td>
+                <td id="totalInfiltration"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Climbing{% endtrans %}</th>
+                <td>{{ form_widget(form.baseClimbing) }}</td>
+                <td>{{ form_widget(form.bonusClimbing) }}</td>
+                <td id="totalClimbing"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Swimming{% endtrans %}</th>
+                <td>{{ form_widget(form.baseSwimming) }}</td>
+                <td>{{ form_widget(form.bonusSwimming) }}</td>
+                <td id="totalSwimming"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Parkour{% endtrans %}</th>
+                <td>{{ form_widget(form.baseParkour) }}</td>
+                <td>{{ form_widget(form.bonusParkour) }}</td>
+                <td id="totalParkour"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Flight{% endtrans %}</th>
+                <td>{{ form_widget(form.baseFlight) }}</td>
+                <td>{{ form_widget(form.bonusFlight) }}</td>
+                <td id="totalFlight"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Demolition{% endtrans %}</th>
+                <td>{{ form_widget(form.baseDemolition) }}</td>
+                <td>{{ form_widget(form.bonusDemolition) }}</td>
+                <td id="totalDemolition"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Infosec{% endtrans %}</th>
+                <td>{{ form_widget(form.baseInfosec) }}</td>
+                <td>{{ form_widget(form.bonusInfosec) }}</td>
+                <td id="totalInfosec"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Interface{% endtrans %}</th>
+                <td>{{ form_widget(form.baseInterface) }}</td>
+                <td>{{ form_widget(form.bonusInterface) }}</td>
+                <td id="totalInterface"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Equipment 1{% endtrans %}</th>
+                <td>{{ form_widget(form.baseEquipment1) }}</td>
+                <td>{{ form_widget(form.bonusEquipment1) }}</td>
+                <td id="totalEquipment1"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Equipment 2{% endtrans %}</th>
+                <td>{{ form_widget(form.baseEquipment2) }}</td>
+                <td>{{ form_widget(form.bonusEquipment2) }}</td>
+                <td id="totalEquipment2"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Equipment 3{% endtrans %}</th>
+                <td>{{ form_widget(form.baseEquipment3) }}</td>
+                <td>{{ form_widget(form.bonusEquipment3) }}</td>
+                <td id="totalEquipment3"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Medicine 1{% endtrans %}</th>
+                <td>{{ form_widget(form.baseMedicine1) }}</td>
+                <td>{{ form_widget(form.bonusMedicine1) }}</td>
+                <td id="totalMedicine1"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Medicine 2{% endtrans %}</th>
+                <td>{{ form_widget(form.baseMedicine2) }}</td>
+                <td>{{ form_widget(form.bonusMedicine2) }}</td>
+                <td id="totalMedicine2"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Programming{% endtrans %}</th>
+                <td>{{ form_widget(form.baseProgramming) }}</td>
+                <td>{{ form_widget(form.bonusProgramming) }}</td>
+                <td id="totalProgramming"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Search{% endtrans %}</th>
+                <td>{{ form_widget(form.baseSearch) }}</td>
+                <td>{{ form_widget(form.bonusSearch) }}</td>
+                <td id="totalSearch"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Psychosurgery{% endtrans %}</th>
+                <td>{{ form_widget(form.basePsychoSurgery) }}</td>
+                <td>{{ form_widget(form.bonusPsychoSurgery) }}</td>
+                <td id="totalPsychoSurgery"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Excavation{% endtrans %}</th>
+                <td>{{ form_widget(form.baseExcavation) }}</td>
+                <td>{{ form_widget(form.bonusExcavation) }}</td>
+                <td id="totalExcavation"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Investigation{% endtrans %}</th>
+                <td>{{ form_widget(form.baseInvestigation) }}</td>
+                <td>{{ form_widget(form.bonusInvestigation) }}</td>
+                <td id="totalInvestigation"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Navigation{% endtrans %}</th>
+                <td>{{ form_widget(form.baseNavigation) }}</td>
+                <td>{{ form_widget(form.bonusNavigation) }}</td>
+                <td id="totalNavigation"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Perception{% endtrans %}</th>
+                <td>{{ form_widget(form.basePerception) }}</td>
+                <td>{{ form_widget(form.bonusPerception) }}</td>
+                <td id="totalPerception"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Psi assault{% endtrans %}</th>
+                <td>{{ form_widget(form.basePsiAssault) }}</td>
+                <td>{{ form_widget(form.bonusPsiAssault) }}</td>
+                <td id="totalPsiAssault"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Control{% endtrans %}</th>
+                <td>{{ form_widget(form.baseControl) }}</td>
+                <td>{{ form_widget(form.bonusControl) }}</td>
+                <td id="totalControl"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Sensation{% endtrans %}</th>
+                <td>{{ form_widget(form.baseSensation) }}</td>
+                <td>{{ form_widget(form.bonusSensation) }}</td>
+                <td id="totalSensation"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Animal control{% endtrans %}</th>
+                <td>{{ form_widget(form.baseAnimalControl) }}</td>
+                <td>{{ form_widget(form.bonusAnimalControl) }}</td>
+                <td id="totalAnimalControl"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Imposture{% endtrans %}</th>
+                <td>{{ form_widget(form.baseImposture) }}</td>
+                <td>{{ form_widget(form.bonusImposture) }}</td>
+                <td id="totalImposture"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Intimidation{% endtrans %}</th>
+                <td>{{ form_widget(form.baseIntimidation) }}</td>
+                <td>{{ form_widget(form.bonusIntimidation) }}</td>
+                <td id="totalIntimidation"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Kinesics{% endtrans %}</th>
+                <td>{{ form_widget(form.baseKinesics) }}</td>
+                <td>{{ form_widget(form.bonusKinesics) }}</td>
+                <td id="totalKinesics"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Persuasion{% endtrans %}</th>
+                <td>{{ form_widget(form.basePersuasion) }}</td>
+                <td>{{ form_widget(form.bonusPersuasion) }}</td>
+                <td id="totalPersuasion"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Protocol{% endtrans %}</th>
+                <td>{{ form_widget(form.baseProtocol) }}</td>
+                <td>{{ form_widget(form.bonusProtocol) }}</td>
+                <td id="totalProtocol"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Network {% endtrans %}</th>
+                <td>{{ form_widget(form.baseNetwork1) }}</td>
+                <td>{{ form_widget(form.bonusNetwork1) }}</td>
+                <td id="totalNetwork1"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Network 2{% endtrans %}</th>
+                <td>{{ form_widget(form.baseNetwork2) }}</td>
+                <td>{{ form_widget(form.bonusNetwork2) }}</td>
+                <td id="totalNetwork2"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Network 3{% endtrans %}</th>
+                <td>{{ form_widget(form.baseNetwork3) }}</td>
+                <td>{{ form_widget(form.bonusNetwork3) }}</td>
+                <td id="totalNetwork3"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Network 4{% endtrans %}</th>
+                <td>{{ form_widget(form.baseNetwork4) }}</td>
+                <td>{{ form_widget(form.bonusNetwork4) }}</td>
+                <td id="totalNetwork4"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Subterfuge{% endtrans %}</th>
+                <td>{{ form_widget(form.baseSubterfuge) }}</td>
+                <td>{{ form_widget(form.bonusSubterfuge) }}</td>
+                <td id="totalSubterfuge"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Piloting 1{% endtrans %}</th>
+                <td>{{ form_widget(form.basePiloting1) }}</td>
+                <td>{{ form_widget(form.bonusPiloting1) }}</td>
+                <td id="totalPiloting1"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Piloting 2{% endtrans %}</th>
+                <td>{{ form_widget(form.basePiloting2) }}</td>
+                <td>{{ form_widget(form.bonusPiloting2) }}</td>
+                <td id="totalPiloting2"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Piloting 3{% endtrans %}</th>
+                <td>{{ form_widget(form.basePiloting3) }}</td>
+                <td>{{ form_widget(form.bonusPiloting3) }}</td>
+                <td id="totalPiloting3"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Piloting 4{% endtrans %}</th>
+                <td>{{ form_widget(form.basePiloting4) }}</td>
+                <td>{{ form_widget(form.bonusPiloting4) }}</td>
+                <td id="totalPiloting4"></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover table-striped table-light">
+        <caption>Compétences de connaissance</caption>
+        <thead class="thead-dark">
+            <tr>
+                <th>&nbsp;</th>
+                <th scope="col">Base</th>
+                <th scope="col">Bonus</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{% trans %}Art 1{% endtrans %}</th>
+                <td>{{ form_widget(form.baseArt1) }}</td>
+                <td>{{ form_widget(form.bonusArt1) }}</td>
+                <td id="totalArt1"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Art 2{% endtrans %}</th>
+                <td>{{ form_widget(form.baseArt2) }}</td>
+                <td>{{ form_widget(form.bonusArt2) }}</td>
+                <td id="totalArt2"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Art 3{% endtrans %}</th>
+                <td>{{ form_widget(form.baseArt3) }}</td>
+                <td>{{ form_widget(form.bonusArt3) }}</td>
+                <td id="totalArt3"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Art 4{% endtrans %}</th>
+                <td>{{ form_widget(form.baseArt4) }}</td>
+                <td>{{ form_widget(form.bonusArt4) }}</td>
+                <td id="totalArt4"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Interest 1{% endtrans %}</th>
+                <td>{{ form_widget(form.baseInterest1) }}</td>
+                <td>{{ form_widget(form.bonusInterest1) }}</td>
+                <td id="totalInterest1"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Interest 2{% endtrans %}</th>
+                <td>{{ form_widget(form.baseInterest2) }}</td>
+                <td>{{ form_widget(form.bonusInterest2) }}</td>
+                <td id="totalInterest2"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Interest 3{% endtrans %}</th>
+                <td>{{ form_widget(form.baseInterest3) }}</td>
+                <td>{{ form_widget(form.bonusInterest3) }}</td>
+                <td id="totalInterest3"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Interest 4{% endtrans %}</th>
+                <td>{{ form_widget(form.baseInterest4) }}</td>
+                <td>{{ form_widget(form.bonusInterest4) }}</td>
+                <td id="totalInterest4"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Native language{% endtrans %}</th>
+                <td>{{ form_widget(form.baseNativeLanguage) }}</td>
+                <td>{{ form_widget(form.bonusNativeLanguage) }}</td>
+                <td id="totalNativeLanguage"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Language 1{% endtrans %}</th>
+                <td>{{ form_widget(form.baseLanguage1) }}</td>
+                <td>{{ form_widget(form.bonusLanguage1) }}</td>
+                <td id="totalLanguage1"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Language 2{% endtrans %}</th>
+                <td>{{ form_widget(form.baseLanguage2) }}</td>
+                <td>{{ form_widget(form.bonusLanguage2) }}</td>
+                <td id="totalLanguage2"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Language 3{% endtrans %}</th>
+                <td>{{ form_widget(form.baseLanguage3) }}</td>
+                <td>{{ form_widget(form.bonusLanguage3) }}</td>
+                <td id="totalLanguage3"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Language 4{% endtrans %}</th>
+                <td>{{ form_widget(form.baseLanguage4) }}</td>
+                <td>{{ form_widget(form.bonusLanguage4) }}</td>
+                <td id="totalLanguage4"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Profession 1{% endtrans %}</th>
+                <td>{{ form_widget(form.baseProfession1) }}</td>
+                <td>{{ form_widget(form.bonusProfession1) }}</td>
+                <td id="totalProfession1"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Profession 2{% endtrans %}</th>
+                <td>{{ form_widget(form.baseProfession2) }}</td>
+                <td>{{ form_widget(form.bonusProfession2) }}</td>
+                <td id="totalProfession2"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Profession 3{% endtrans %}</th>
+                <td>{{ form_widget(form.baseProfession3) }}</td>
+                <td>{{ form_widget(form.bonusProfession3) }}</td>
+                <td id="totalProfession3"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Profession 4{% endtrans %}</th>
+                <td>{{ form_widget(form.baseProfession4) }}</td>
+                <td>{{ form_widget(form.bonusProfession4) }}</td>
+                <td id="totalProfession4"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Theory 1{% endtrans %}</th>
+                <td>{{ form_widget(form.baseTheory1) }}</td>
+                <td>{{ form_widget(form.bonusTheory1) }}</td>
+                <td id="totalTheory1"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Theory 2{% endtrans %}</th>
+                <td>{{ form_widget(form.baseTheory2) }}</td>
+                <td>{{ form_widget(form.bonusTheory2) }}</td>
+                <td id="totalTheory2"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Theory 3{% endtrans %}</th>
+                <td>{{ form_widget(form.baseTheory3) }}</td>
+                <td>{{ form_widget(form.bonusTheory3) }}</td>
+                <td id="totalTheory3"></td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans %}Theory 4{% endtrans %}</th>
+                <td>{{ form_widget(form.baseTheory4) }}</td>
+                <td>{{ form_widget(form.bonusTheory4) }}</td>
+                <td id="totalTheory4"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary btn-lg">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
+
+<script type="text/javascript">
+    function calcApt() {
+    var baseCog = parseInt(document.getElementById('backups_baseCog').value);
+    var baseCoo = parseInt(document.getElementById('backups_baseCoo').value);
+    var baseInt = parseInt(document.getElementById('backups_baseInt').value);
+    var baseRef = parseInt(document.getElementById('backups_baseRef').value);
+    var baseAst = parseInt(document.getElementById('backups_baseAst').value);
+    var baseSom = parseInt(document.getElementById('backups_baseSom').value);
+    var baseVol = parseInt(document.getElementById('backups_baseVol').value);
+    var bonusCog = parseInt(document.getElementById('backups_bonusCog').value);
+    var bonusCoo = parseInt(document.getElementById('backups_bonusCoo').value);
+    var bonusInt = parseInt(document.getElementById('backups_bonusInt').value);
+    var bonusRef = parseInt(document.getElementById('backups_bonusRef').value);
+    var bonusAst = parseInt(document.getElementById('backups_bonusAst').value);
+    var bonusSom = parseInt(document.getElementById('backups_bonusSom').value);
+    var bonusVol = parseInt(document.getElementById('backups_bonusVol').value);
+    document.getElementById('totalCog').innerHTML = String(baseCog + bonusCog);
+    document.getElementById('totalCoo').innerHTML = String(baseCoo + bonusCoo);
+    var totalInt = baseInt + bonusInt;
+    document.getElementById('totalInt').innerHTML = String(totalInt);
+    var totalRef = baseRef + bonusRef;
+    document.getElementById('totalRef').innerHTML = String(totalRef);
+    document.getElementById('totalAst').innerHTML = String(baseAst + bonusAst);
+    var totalSom = baseSom + bonusSom;
+    document.getElementById('totalSom').innerHTML = String(totalSom);
+    var totalVol = baseVol + bonusVol;
+    document.getElementById('totalVol').innerHTML = String(totalVol);
+    var luc = totalVol * 2;
+    document.getElementById('luc').innerHTML = String(luc);
+    document.getElementById('st').innerHTML = String(Math.ceil(luc / 5));
+    document.getElementById('sa').innerHTML = String(luc * 2);
+    var init = Math.ceil((totalInt + totalRef) / 5);
+    document.getElementById('init').innerHTML = String(init);
+    var bd = Math.ceil(totalSom / 10);
+    document.getElementById('bd').innerHTML = String(bd);
+}
+
+function calcTotalSkill(skill) {
+    var elementBase = document.getElementById('backups_base' + skill).value;
+    var base = ("" === elementBase) ? 0 : parseInt(elementBase);
+    var elementBonus = document.getElementById('backups_bonus' + skill).value;
+    var bonus = ("" === elementBonus) ? 0 : parseInt(elementBonus);
+    document.getElementById('total' + skill).innerHTML = String(base + bonus);
+}
+</script>

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Backups{% endtrans %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans %}Backups{% endtrans %}</h1>
+
+    <table class="table table-hover table-striped table-light">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{% trans %}Backup date{%  endtrans %}</th>
+                <th scope="col">{% trans %}Backup character{% endtrans %}</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for backup in backups %}
+            <tr>
+                <td>{{ backup.backupDate ? backup.backupDate : '' }}</td>
+                <td>{{ backup.playableCharacter }}</td>
+                <td>
+                    <a href="{{ path('backups_show', {'id': backup.id}) }}">
+                        <i title="{% trans %}show{% endtrans %}" class="far fa-eye"></i>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">{% trans %}No backup found{% endtrans %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('backups_new') }}" class="abtn btn-primary btn-lg">{% trans %}Create new backup{% endtrans %}</a>
+{% endblock %}

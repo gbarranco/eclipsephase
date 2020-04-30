@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Eclipse Phase{% endtrans %}{% endblock %}
+
+{% block body %}
+    <div class="card" style="width: 18rem;">
+        <a href="{{ path('player_index') }}">
+            <div class="card-body">
+                <h5 class="card-title">{% trans %}Players{% endtrans %}</h5>
+            </div>
+        </a>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <a href="{{ path('character_index') }}">
+            <div class="card-body">
+                <h5 class="card-title">{% trans %}Characters{% endtrans %}</h5>
+            </div>
+        </a>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <a href="{{ path('backups_index') }}">
+            <div class="card-body">
+                <h5 class="card-title">{% trans %}Backups{% endtrans %}</h5>
+            </div>
+        </a>
+    </div>
+{% endblock %}
