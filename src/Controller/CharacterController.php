@@ -20,8 +20,15 @@ class CharacterController extends AbstractController
      */
     public function index(CharacterRepository $characterRepository): Response
     {
+        $user = $this->getUser();
+        $characters = [];
+        if('MJ' === $user->getPlayerType()) {
+            $characters = $characterRepository->findAll();
+        } elseif ('PJ' === $user->getPlayerType()) {
+            $characters = $characterRepository->findByPlayer($user);
+        }
         return $this->render('character/index.html.twig', [
-            'characters' => $characterRepository->findAll(),
+            'characters' => $characters,
         ]);
     }
 
@@ -53,6 +60,7 @@ class CharacterController extends AbstractController
      */
     public function show(Character $character): Response
     {
+        $this->denyAccessUnlessGranted('view', $character);
         return $this->render('character/show.html.twig', [
             'character' => $character,
         ]);
@@ -60,9 +68,13 @@ class CharacterController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="character_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Character $character
+     * @return Response
      */
     public function edit(Request $request, Character $character): Response
     {
+        $this->denyAccessUnlessGranted('edit', $character);
         $form = $this->createForm(CharacterType::class, $character);
         $form->handleRequest($request);
 
@@ -80,9 +92,13 @@ class CharacterController extends AbstractController
 
     /**
      * @Route("/{id}", name="character_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Character $character
+     * @return Response
      */
     public function delete(Request $request, Character $character): Response
     {
+        $this->denyAccessUnlessGranted('edit', $character);
         if ($this->isCsrfTokenValid('delete'.$character->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($character);

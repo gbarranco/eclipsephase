@@ -94,5 +94,7 @@
         </a>
     </div>
 
-    {{ include('character/_delete_form.html.twig') }}
+    {% if app.user.id is same as(character.player.id) %}
+        {{ include('character/_delete_form.html.twig') }}
+    {% endif %}
 {% endblock %}
