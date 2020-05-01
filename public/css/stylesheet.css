@@ -99,6 +99,7 @@ caption {
 
 .table .thead-dark th {
     background-color: #800000;
+    border-color: #800000;
 }
 
 .specialization {
