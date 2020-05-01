@@ -506,6 +506,108 @@ class BackupsType extends AbstractType
                 'attr' => ['onchange' => 'calcTotalSkill(\'Theory4\')']
             ])
             ->add('playableCharacter')
+            ->add('equipment1Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('equipment2Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('equipment3Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('medicine1Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('medicine2Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('network1Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('network2Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('network3Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('network4Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('piloting1Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('piloting2Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('piloting3Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('piloting4Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('art1Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('art2Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('art3Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('art4Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('interest1Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('interest2Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('interest3Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('interest4Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('nativeLanguageText', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('language1Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('language2Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('language3Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('language4Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('profession1Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('profession2Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('profession3Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('profession4Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('theory1Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('theory2Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('theory3Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
+            ->add('theory4Text', TextType::class, [
+                'attr' => ['class' => 'specialization']
+            ])
         ;
     }
 

@@ -5,6 +5,7 @@ body {
 
 a, a:hover {
     text-decoration: none;
+    color: #800000;
 }
 
 .container {
@@ -97,4 +98,18 @@ caption {
 
 .table .thead-dark th {
     background-color: #800000;
+}
+
+.specialization {
+    width: 200px;
+    display: inline;
+    margin: 0 6px;
+}
+
+.register {
+    margin: 10px 0;
+}
+
+.form-row {
+    margin: 20px 0;
 }

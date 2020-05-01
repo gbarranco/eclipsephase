@@ -3,6 +3,13 @@ show: Voir
 edit: Modifier
 back to list: Retour à la liste
 Delete: Supprimer
+Log in!: Connexion
+You are logged in as: Tu es connecté en tant que
+Please sign in: Connexion
+Password: Mot de passe
+Sign in: Connexion
+You don't have any account?: Tu n'as pas de compte ?
+Register!: Crées-en un !
 
 # Player
 Player: Joueur
@@ -60,11 +67,8 @@ Flight: Vol
 Demolition: Démolition
 Infosec: Infosec
 Interface: Interface
-Equipment1: Matériel 1
-Equipment2: Matériel 2
-Equipment3: Matériel 3
-Medicine1: Médecine 1
-Medicine2: Médecine 2
+Equipment: Matériel
+Medicine: Médecine
 Programming: Programmation
 Search: Recherche
 Psychosurgery: Psychochirurgie
@@ -81,33 +85,12 @@ Intimidation: Intimidation
 Kinesics: Kinésique
 Persuasion: Persuasion
 Protocol: Protocole
-Network 1: Réseau 1
-Network 2: Réseau 2
-Network 3: Réseau 3
-Network 4: Réseau 4
+Network: Réseau
 Subterfuge: Subterfuge
-Piloting 1: Pilotage 1
-Piloting 2: Pilotage 2
-Piloting 3: Pilotage 3
-Piloting 4: Pilotage 4
-Art 1: Art 1
-Art 2: Art 2
-Art 3: Art 3
-Art 4: Art 4
-Interest 1 : Intérêt 1
-Interest 2 : Intérêt 2
-Interest 3 : Intérêt 3
-Interest 4 : Intérêt 4
+Piloting: Pilotage
+Art: Art
+Interest: Intérêt
 Native language: Langue native
-Language 1 : Langue 1
-Language 2 : Langue 2
-Language 3 : Langue 3
-Language 4 : Langue 4
-Profession 1 : Profession 1
-Profession 2 : Profession 2
-Profession 3 : Profession 3
-Profession 4 : Profession 4
-Theory 1 : Théorie 1
-Theory 2 : Théorie 2
-Theory 3 : Théorie 3
-Theory 4 : Théorie 4
+Language: Langue
+Profession: Profession
+Theory : Théorie
