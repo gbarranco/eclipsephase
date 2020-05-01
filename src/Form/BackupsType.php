@@ -3,15 +3,26 @@
 namespace App\Form;
 
 use App\Entity\Backups;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Security;
 
 class BackupsType extends AbstractType
 {
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $player = $this->security->getUser();
         $builder
             ->add('backupDate')
             ->add('baseCog', TextType::class, [
@@ -505,7 +516,15 @@ class BackupsType extends AbstractType
             ->add('bonusTheory4', TextType::class, [
                 'attr' => ['onchange' => 'calcTotalSkill(\'Theory4\')']
             ])
-            ->add('playableCharacter')
+            ->add('playableCharacter', EntityType::class, [
+                'class' => 'App\Entity\Character',
+                'query_builder' => function (EntityRepository $er) use ($player) {
+                    return $er->createQueryBuilder('c')
+                        ->andWhere('c.Player = :player')
+                        ->setParameter(':player', $player)
+                        ->orderBy('c.characterName', 'ASC');
+                }
+            ])
             ->add('equipment1Text', TextType::class, [
                 'attr' => ['class' => 'specialization']
             ])
