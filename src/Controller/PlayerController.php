@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
- * @Route("/player")
+ * @Route("/profil")
  */
 class PlayerController extends AbstractController
 {
@@ -27,17 +27,7 @@ class PlayerController extends AbstractController
     }
 
     /**
-     * @Route("/", name="player_index", methods={"GET"})
-     */
-    public function index(PlayerRepository $playerRepository): Response
-    {
-        return $this->render('player/index.html.twig', [
-            'players' => $playerRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="player_new", methods={"GET","POST"})
+     * @Route("/new", name="profil_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -52,7 +42,7 @@ class PlayerController extends AbstractController
             $entityManager->persist($player);
             $entityManager->flush();
 
-            return $this->redirectToRoute('player_index');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('player/new.html.twig', [
@@ -62,27 +52,31 @@ class PlayerController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="player_show", methods={"GET"})
+     * @Route("/{id}", name="profil_show", methods={"GET"})
      */
     public function show(Player $player): Response
     {
+        $this->denyAccessUnlessGranted('view', $player);
         return $this->render('player/show.html.twig', [
             'player' => $player,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="player_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="profil_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Player $player): Response
     {
+        $this->denyAccessUnlessGranted('edit', $player);
         $form = $this->createForm(PlayerType::class, $player);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $password = $this->passwordEncoder->encodePassword($player, $player->getPassword());
+            $player->setPassword($password);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('player_index');
+            return $this->redirectToRoute('profil_show', ['id' => $this->getUser()->getId()]);
         }
 
         return $this->render('player/edit.html.twig', [
@@ -92,16 +86,17 @@ class PlayerController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="player_delete", methods={"DELETE"})
+     * @Route("/{id}", name="profil_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Player $player): Response
     {
+        $this->denyAccessUnlessGranted('edit', $player);
         if ($this->isCsrfTokenValid('delete'.$player->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($player);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('player_index');
+        return $this->redirectToRoute('home');
     }
 }

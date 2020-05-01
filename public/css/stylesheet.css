@@ -6,6 +6,7 @@ body {
 a, a:hover {
     text-decoration: none;
     color: #800000;
+    outline: 0;
 }
 
 .container {

@@ -10,6 +10,7 @@ Password: Mot de passe
 Sign in: Connexion
 You don't have any account?: Tu n'as pas de compte ?
 Register!: Crées-en un !
+back: Retour
 
 # Player
 Player: Joueur
@@ -20,6 +21,8 @@ New player: Nouveau joueur
 Player name: Nom du joueur
 Edit Player: Modifier un joueur
 Update: Mettre à jour
+Player type: Type de joueur
+Profile: Profil
 
 # Characters
 Character: Personnage

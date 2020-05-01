@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Backups;
+use App\Entity\Character;
+use App\Entity\Player;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,32 +21,20 @@ class BackupsRepository extends ServiceEntityRepository
         parent::__construct($registry, Backups::class);
     }
 
-    // /**
-    //  * @return Backups[] Returns an array of Backups objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param Player $player
+     *
+     * @return Backups[] Returns an array of Backups objects by player id
+     */
+    public function findByPlayer(Player $player): ?array
     {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('backup')
+            ->join('backup.playableCharacter', 'character')
+            ->andWhere('character.Player = :player')
+            ->setParameter(':player', $player)
+            ->orderBy('backup.id', 'DESC')
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Backups
-    {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

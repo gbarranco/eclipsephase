@@ -11,13 +11,25 @@
                 <th scope="row">{% trans %}Player name{% endtrans %}</th>
                 <td>{{ player.playerName }}</td>
             </tr>
+            <tr>
+                <th scope="row">{% trans %}Player type{% endtrans %}</th>
+                <td>{{ player.playerType }}</td>
+            </tr>
         </tbody>
     </table>
 
     <div class="back">
-        <a href="{{ path('player_index') }}">
+        <a href="{{ path('profil_edit', {'id': app.user.id}) }}">
+            <i class="far fa-edit">
+                {% trans %}edit{% endtrans %}
+            </i>
+        </a>
+    </div>
+
+    <div class="back">
+        <a href="{{ path('home') }}">
             <i class="fas fa-angle-double-left">
-                {% trans %}back to list{% endtrans %}
+                {% trans %}back{% endtrans %}
             </i>
         </a>
     </div>
