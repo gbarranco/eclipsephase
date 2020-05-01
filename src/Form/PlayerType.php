@@ -18,8 +18,8 @@ class PlayerType extends AbstractType
             ->add('password', PasswordType::class)
             ->add('playerType', ChoiceType::class, [
                 'choices' => [
-                    'PJ' => 'ROLE_PJ',
-                    'MJ' => 'ROLE_MJ'
+                    'PJ' => 'PJ',
+                    'MJ' => 'MJ'
                 ]
             ])
         ;

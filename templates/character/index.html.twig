@@ -22,9 +22,11 @@
                     <a href="{{ path('character_show', {'id': character.id}) }}">
                         <i title="{% trans %}show{% endtrans %}" class="far fa-eye"></i>
                     </a>
-                    <a href="{{ path('character_edit', {'id': character.id}) }}">
-                        <i title="{% trans %}edit{% endtrans %}" class="far fa-edit"></i>
-                    </a>
+                    {% if app.user.id is same as(character.player.id) %}
+                        <a href="{{ path('character_edit', {'id': character.id}) }}">
+                            <i title="{% trans %}edit{% endtrans %}" class="far fa-edit"></i>
+                        </a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}

@@ -6,6 +6,7 @@ body {
 a, a:hover {
     text-decoration: none;
     color: #800000;
+    outline: 0;
 }
 
 .container {
@@ -98,6 +99,7 @@ caption {
 
 .table .thead-dark th {
     background-color: #800000;
+    border-color: #800000;
 }
 
 .specialization {

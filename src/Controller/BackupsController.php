@@ -20,8 +20,15 @@ class BackupsController extends AbstractController
      */
     public function index(BackupsRepository $backupsRepository): Response
     {
+        $user = $this->getUser();
+        $backups = [];
+        if('MJ' === $user->getPlayerType()) {
+            $backups = $backupsRepository->findAll();
+        } elseif ('PJ' === $user->getPlayerType()) {
+            $backups = $backupsRepository->findByPlayer($user);
+        }
         return $this->render('backups/index.html.twig', [
-            'backups' => $backupsRepository->findAll(),
+            'backups' => $backups,
         ]);
     }
 
@@ -53,6 +60,7 @@ class BackupsController extends AbstractController
      */
     public function show(Backups $backup): Response
     {
+        $this->denyAccessUnlessGranted('view', $backup);
         return $this->render('backups/show.html.twig', [
             'backup' => $backup,
         ]);
@@ -63,6 +71,7 @@ class BackupsController extends AbstractController
      */
     public function delete(Request $request, Backups $backup): Response
     {
+        $this->denyAccessUnlessGranted('delete', $backup);
         if ($this->isCsrfTokenValid('delete'.$backup->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($backup);

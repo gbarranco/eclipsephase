@@ -10,10 +10,17 @@
     <body>
         <div class="container">
             <div class="logo">
-                <a href="/">
+                <a href="{{ path('home') }}">
                     <img src="{{ asset('images/eclipsephase_logo.png') }}" alt="logo" />
                 </a>
             </div>
+            {% if app.user %}
+                <div class="logged-in">
+                    <i class="far fa-user">
+                        {% trans %}You are logged in as{% endtrans %} {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </i>
+                </div>
+            {% endif %}
             {% block body %}{% endblock %}
         </div>
         {% block javascripts %}{% endblock %}

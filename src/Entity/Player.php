@@ -127,4 +127,9 @@ class Player implements UserInterface
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->playerName;
+    }
 }

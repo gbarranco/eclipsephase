@@ -4,9 +4,9 @@
 
 {% block body %}
     <div class="card" style="width: 18rem;">
-        <a href="{{ path('player_index') }}">
+        <a href="{{ path('profil_show', { 'id': app.user.id}) }}">
             <div class="card-body">
-                <h5 class="card-title">{% trans %}Players{% endtrans %}</h5>
+                <h5 class="card-title">{% trans %}Profile{% endtrans %}</h5>
             </div>
         </a>
     </div>
